@@ -11,14 +11,17 @@ import {
 } from "@mui/material";
 import { Book } from "@/types/index";
 
-export default function BookCard({ book }: { book: Book }) {
+export default  function BookCard({ book }: { book: Book }) {
+    function getImageUrl(coverPhotoURL: string) {
+      return new URL(`../${coverPhotoURL}`, import.meta.url).href;
+    }
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>
         <CardMedia
           component="img"
           height="140"
-          src={`../${book.coverPhotoURL}`}
+          src={getImageUrl(book.coverPhotoURL)}
           alt={book.title}
         />
         <CardContent>
