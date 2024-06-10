@@ -76,7 +76,7 @@ function App() {
 
   return (
     <>
-      <div className='my-4'>
+      <div className="my-4">
         {" "}
         <Search>
           <SearchIconWrapper>
