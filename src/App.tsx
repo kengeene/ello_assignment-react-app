@@ -1,24 +1,13 @@
 import './assets/css/App.css'
-import { useQuery, gql } from "@apollo/client";
 import {
   CircularProgress,
 } from "@mui/material";
 import BooksList from '@/components/BooksList'
 import SearchBar from '@/components/SearchBar';
-
+import useBooks from '@/hooks/useBooks';
 
 function App() {
-  const GET_BOOKS = gql`
-    query BooksQuery {
-      books {
-        coverPhotoURL
-        author
-        readingLevel
-        title
-      }
-    }
-  `;
-  const { loading, error, data } = useQuery(GET_BOOKS);
+  const { loading, error, data } = useBooks();
 
     if (loading) return <CircularProgress />;
     if (error) return <p>Error : {error.message}</p>;
