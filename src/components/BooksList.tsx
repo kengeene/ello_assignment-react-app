@@ -42,7 +42,7 @@ export default function BooksList({books}: {books: Array<Book>}) {
       </Grid>
       <TablePagination
         component="div"
-        count={100}
+        count={books.length}
         page={page}
         onPageChange={handleChangePage}
         rowsPerPage={rowsPerPage}
