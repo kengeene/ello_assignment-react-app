@@ -1,4 +1,4 @@
-import './assets/css/App.css'
+import '@/assets/css/App.css'
 import {
   CircularProgress,
 } from "@mui/material";
