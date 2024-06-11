@@ -10,11 +10,18 @@ import {
   CardActions,
 } from "@mui/material";
 import { Book } from "@/types/index";
-
-export default  function BookCard({ book }: { book: Book }) {
-    function getImageUrl(coverPhotoURL: string) {
-      return new URL(`../${coverPhotoURL}`, import.meta.url).href;
-    }
+import useBooks from "@/hooks/useBooks";
+export default  function BookCard({
+  book,
+}: {
+  book: Book;
+}) {
+  const {
+    addToReadingList,
+  } = useBooks();
+  function getImageUrl(coverPhotoURL: string) {
+    return new URL(`../${coverPhotoURL}`, import.meta.url).href;
+  }
   return (
     <Card
       sx={{ maxWidth: 200, height: 300 }}
@@ -43,7 +50,7 @@ export default  function BookCard({ book }: { book: Book }) {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
+        <Button size="small" color="primary" onClick={() => addToReadingList(book)}>
           Add to reading list
         </Button>
       </CardActions>

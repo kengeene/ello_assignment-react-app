@@ -21,7 +21,7 @@ function App() {
     data,
     setSearch,
     search,
-    readingList
+    selectedBooks,
   } = useBooks();
   const { open, handleOpen, handleClose } = useModal();
 
@@ -32,7 +32,7 @@ function App() {
     <Grid container spacing={2} minWidth={"90vw"}>
       <Grid item xs={12} sm={12} md={12} lg={12} className="text-right">
         <Badge
-          badgeContent={readingList.length}
+          badgeContent={`${selectedBooks.length}`}
           color="warning"
           className="hover:cursor-pointer"
           onClick={handleOpen}
@@ -45,7 +45,7 @@ function App() {
           aria-labelledby="modal-modal-title"
           aria-describedby="modal-modal-description"
         >
-          <ReadingListTable readingList={readingList} />
+          <ReadingListTable readingList={selectedBooks} />
         </Modal>
       </Grid>
       <Grid item xs={12} sm={12} md={12} lg={12} key={"top-bar"}>
@@ -55,7 +55,10 @@ function App() {
       </Grid>
       <Grid></Grid>
       <Grid item xs={12} sm={12} md={12} lg={12} key={"app-container"}>
-        <BooksList books={data.books} search={search} />
+        <BooksList
+          books={data.books}
+          search={search}
+        />
       </Grid>
     </Grid>
   );

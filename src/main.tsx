@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom/client'
 import App from '@/pages/index.tsx'
 import '@/assets/css/index.css'
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { store } from "@/store"
+import { Provider } from "react-redux";
 
 import {
   ApolloClient,
@@ -15,16 +17,6 @@ import {
     cache: new InMemoryCache(),
   });
 
-// declare module "@mui/material/styles" {
-//   interface Theme {
-//     palette: {
-//       light: string;
-//       main: string;
-//       dark: string;
-//       contrastText: string;
-//     };
-//   }
-// }
   const theme = createTheme({
     palette: {
       primary: {
@@ -44,10 +36,12 @@ import {
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
+  <Provider store={store}>
     <ThemeProvider theme={theme}>
     <ApolloProvider client={client}>
         <App />
     </ApolloProvider>
     </ThemeProvider>
+    </Provider>
   </React.StrictMode>,
 )

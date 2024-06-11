@@ -3,4 +3,5 @@ export type Book = {
   author: string;
   readingLevel: string;
   title: string;
+  id: number
 };

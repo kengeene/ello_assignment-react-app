@@ -29,7 +29,9 @@ export default function BooksList({
 
   useEffect(() => {
     setSearchResults(
-      books.filter((results) => results.title.toLowerCase().includes(search.toLowerCase()))
+      books.filter((results) =>
+        results.title.toLowerCase().includes(search.toLowerCase())
+      )
     );
   }, [search, books]);
 
