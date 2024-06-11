@@ -48,12 +48,9 @@ function App() {
           <ReadingListTable readingList={selectedBooks} />
         </Modal>
       </Grid>
-      <Grid item xs={12} sm={12} md={12} lg={12} key={"top-bar"}>
-        <div className="my-4">
+      <Grid item xs={12} sm={12} md={12} lg={12} key={"top-bar"} className="my-4">
           <SearchBar setSearch={setSearch} search={search} />{" "}
-        </div>
       </Grid>
-      <Grid></Grid>
       <Grid item xs={12} sm={12} md={12} lg={12} key={"app-container"}>
         <BooksList
           books={data.books}
