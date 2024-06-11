@@ -29,8 +29,8 @@ function App() {
     if (error) return <p>Error : {error.message}</p>;
 
   return (
-    <Grid container spacing={2} minWidth={"90vw"}>
-      <Grid item xs={12} sm={12} md={12} lg={12} className="text-right">
+    <Grid container zeroMinWidth spacing={4}>
+      <Grid item xs={12} sm={12} md={12} lg={12} className="text-right my-4">
         <Badge
           badgeContent={`${selectedBooks.length}`}
           color="warning"
@@ -48,14 +48,27 @@ function App() {
           <ReadingListTable readingList={selectedBooks} />
         </Modal>
       </Grid>
-      <Grid item xs={12} sm={12} md={12} lg={12} key={"top-bar"} className="my-4">
-          <SearchBar setSearch={setSearch} search={search} />{" "}
+      <Grid
+        item
+        xs={12}
+        sm={12}
+        md={12}
+        lg={12}
+        key={"top-bar"}
+        className="my-4"
+      >
+        <SearchBar setSearch={setSearch} search={search} />{" "}
       </Grid>
-      <Grid item xs={12} sm={12} md={12} lg={12} key={"app-container"}>
-        <BooksList
-          books={data.books}
-          search={search}
-        />
+      <Grid
+        item
+        xs={12}
+        sm={12}
+        md={12}
+        lg={12}
+        key={"app-container"}
+        className="my-4"
+      >
+        <BooksList books={data.books} search={search} />
       </Grid>
     </Grid>
   );

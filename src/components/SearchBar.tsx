@@ -16,9 +16,9 @@ export default function SearchBar({ search, setSearch }: { search: string; setSe
         // paddingLeft: `calc(1em + ${theme.spacing(4)})`,
         // transition: theme.transitions.create("width"),
         width: "100%",
-        [theme.breakpoints.up("md")]: {
-          width: "20ch",
-        }
+        // [theme.breakpoints.up("md")]: {
+        //   width: "20ch",
+        // }
       },
     }));
 
@@ -33,10 +33,10 @@ export default function SearchBar({ search, setSearch }: { search: string; setSe
     marginRight: theme.spacing(2),
     marginLeft: 0,
     width: "100%",
-    [theme.breakpoints.up("sm")]: {
-      marginLeft: theme.spacing(3),
-      width: "auto",
-    },
+    // [theme.breakpoints.up("sm")]: {
+    //   marginLeft: theme.spacing(3),
+    //   width: "auto",
+    // },
   }));
 
   const SearchIconWrapper = styled("div")(({ theme }) => ({

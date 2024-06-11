@@ -42,7 +42,7 @@ export default function BooksList({
 
   return (
     <>
-      <Grid container spacing={3} minHeight={"70vh"} columns={10}>
+      <Grid container spacing={2} minHeight={"70vh"} columns={10}>
         {filteredResults.length > 0 ? (
           filteredResults.map((book: Book, index: number) => (
             <Grid item xs={12} sm={3} md={2} lg={2} key={index}>
