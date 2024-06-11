@@ -28,9 +28,12 @@ function App() {
     if (loading) return <CircularProgress />;
     if (error) return <p>Error : {error.message}</p>;
 
+  const gridWidth = 12
+
   return (
     <Grid container zeroMinWidth spacing={4}>
-      <Grid item xs={12} sm={12} md={12} lg={12} className="text-right my-4">
+      {/* Badge & modal component */}
+      <Grid item xs={gridWidth} sm={gridWidth} md={gridWidth} lg={gridWidth} className="text-right my-4">
         <Badge
           badgeContent={`${selectedBooks.length}`}
           color="warning"
@@ -48,23 +51,25 @@ function App() {
           <ReadingListTable readingList={selectedBooks} />
         </Modal>
       </Grid>
+      {/* Searchbar component */}
       <Grid
         item
-        xs={12}
-        sm={12}
-        md={12}
-        lg={12}
+        xs={gridWidth}
+        sm={gridWidth}
+        md={gridWidth}
+        lg={gridWidth}
         key={"top-bar"}
         className="my-4"
       >
         <SearchBar setSearch={setSearch} search={search} />{" "}
       </Grid>
+      {/* Bookslist & Pagination component */}
       <Grid
         item
-        xs={12}
-        sm={12}
-        md={12}
-        lg={12}
+        xs={gridWidth}
+        sm={gridWidth}
+        md={gridWidth}
+        lg={gridWidth}
         key={"app-container"}
         className="my-4"
       >
