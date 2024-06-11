@@ -3,10 +3,10 @@ import {
 } from "@mui/material";
 import { Book } from "@/types/index";
 import BookCard from "@/components/BookCard";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TablePagination from "@mui/material/TablePagination";
 
-export default function BooksList({books}: {books: Array<Book>}) {
+export default function BooksList({books, search}: {books: Array<Book>; search: string}) {
     const [page, setPage] = useState(2);
     const [rowsPerPage, setRowsPerPage] = useState(10);
 
@@ -21,7 +21,15 @@ export default function BooksList({books}: {books: Array<Book>}) {
       setPage(0);
     };
 
-    const filteredResults = books.slice(
+    const [searchResults, setSearchResults] = useState<Array<Book>>([]);
+
+    useEffect(() => {
+      setSearchResults(
+        books.filter((results) => results.title.toLowerCase().includes(search))
+      );
+    }, [search, books]);
+
+    const filteredResults = searchResults.slice(
       page * rowsPerPage,
       page * rowsPerPage + rowsPerPage
     );
@@ -37,12 +45,14 @@ export default function BooksList({books}: {books: Array<Book>}) {
             </Grid>
           ))
         ) : (
-          <p>No data</p>
+          <Grid container spacing={4}>
+            <p>No data</p>
+          </Grid>
         )}
       </Grid>
       <TablePagination
         component="div"
-        count={books.length}
+        count={searchResults.length}
         page={page}
         onPageChange={handleChangePage}
         rowsPerPage={rowsPerPage}
