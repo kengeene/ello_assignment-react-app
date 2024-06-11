@@ -12,7 +12,7 @@ function App() {
 
   return (
     <Grid container spacing={2}>
-      <Grid item xs={12} sm={4} md={4} lg={4}>
+      <Grid item xs={12} sm={12} md={12} lg={12}>
         <div className="my-4">
           <SearchBar setSearch={setSearch} search={search} />
         </div>
