@@ -29,7 +29,7 @@ export default  function BookCard({
       className="flex flex-col items-center"
     >
       <CardActionArea>
-        <CardContent>
+        <CardContent className="flex flex-col items-center">
           <CardMedia
             component="img"
             src={getImageUrl(book.coverPhotoURL)}
@@ -38,7 +38,7 @@ export default  function BookCard({
               width: 100,
             }}
           />
-          <Typography gutterBottom variant="subtitle2" component="div">
+          <Typography gutterBottom variant="subtitle2" component="div" className="mt-2">
             {book.title}
           </Typography>
           <Typography variant="body2" color="text.secondary">
