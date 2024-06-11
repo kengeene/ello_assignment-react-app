@@ -11,7 +11,7 @@ export default function BooksList({
   books: Array<Book>;
   search: string;
 }) {
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
 
   const handleChangePage = (_: () => void, newPage: number) => {
@@ -21,9 +21,8 @@ export default function BooksList({
   const handleChangeRowsPerPage = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    console.log("handleChangeRowsPerPage to", event.target.value);
-    setRowsPerPage(parseInt(event.target.value, 10));
-    setPage(1);
+    setPage(0);
+    setRowsPerPage(parseInt(event.target.value));
   };
 
   const [searchResults, setSearchResults] = useState<Array<Book>>([]);
