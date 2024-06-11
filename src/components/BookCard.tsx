@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 import { Book } from "@/types/index";
 import useBooks from "@/hooks/useBooks";
+import { useRef } from "react";
 export default  function BookCard({
   book,
 }: {
@@ -18,6 +19,7 @@ export default  function BookCard({
 }) {
   const { addToReadingList, isBookSelected, removeFromReadingList } =
     useBooks();
+    const buttonRef = useRef(null)
   function getImageUrl(coverPhotoURL: string) {
     return new URL(`../${coverPhotoURL}`, import.meta.url).href;
   }
@@ -52,16 +54,20 @@ export default  function BookCard({
         {isBookSelected(book) ? (
           <Button
             size="small"
-            color="primary"
+            color="secondary"
+            variant="contained"
             onClick={() => removeFromReadingList(book)}
+            ref={buttonRef}
           >
-            Remove from reading list
+            Remove
           </Button>
         ) : (
           <Button
             size="small"
             color="primary"
+            variant="contained"
             onClick={() => addToReadingList(book)}
+            ref={buttonRef}
           >
             Add to reading list
           </Button>

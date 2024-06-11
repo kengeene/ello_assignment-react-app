@@ -21,6 +21,7 @@ export default function BooksList({
   const handleChangeRowsPerPage = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
+    console.log("handleChangeRowsPerPage to", event.target.value);
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(1);
   };

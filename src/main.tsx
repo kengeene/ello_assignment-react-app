@@ -25,6 +25,12 @@ import {
         dark: "#28B8B8",
         contrastText: "#FFFFFF",
       },
+      secondary: {
+        light: "#FABD33",
+        main: "#FABD33",
+        dark: "#F76434",
+        contrastText: "#FFFFFF",
+      },
       warning: {
         light: "#FABD33",
         main: "#FABD33",
