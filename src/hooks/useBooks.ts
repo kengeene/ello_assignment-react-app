@@ -21,6 +21,7 @@ export default function useBooks() {
         author
         readingLevel
         title
+        id
       }
     }
   `;
