@@ -52,14 +52,18 @@ export default function SearchBar({ search, setSearch }: { search: string; setSe
   return (
     <>
       {" "}
-      <Search>
+      <Search onClick={() => inputRef.current?.focus()}>
         <SearchIconWrapper>
           <SearchIcon />
         </SearchIconWrapper>
         <StyledInputBase
           placeholder="Search…"
-          inputProps={{ "aria-label": "search", ref: inputRef, value: search, onChange: (e) => setSearch((e.target as HTMLInputElement).value)}}
-
+          inputProps={{
+            "aria-label": "search",
+            ref: inputRef,
+            value: search,
+            onChange: (e) => setSearch((e.target as HTMLInputElement).value),
+          }}
         />
       </Search>
     </>
