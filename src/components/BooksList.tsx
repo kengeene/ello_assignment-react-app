@@ -35,10 +35,10 @@ export default function BooksList({books, search}: {books: Array<Book>; search: 
 
   return (
     <>
-      <Grid container spacing={4} minHeight={"70vh"}>
+      <Grid container spacing={3} minHeight={"70vh"}>
         {filteredResults.length > 0 ? (
           filteredResults.map((book: Book, index: number) => (
-            <Grid item xs={12} sm={4} md={4} lg={4} key={index}>
+            <Grid item xs={12} sm={2} md={2} lg={2} key={index}>
               <BookCard book={book} />
             </Grid>
           ))

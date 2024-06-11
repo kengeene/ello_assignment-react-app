@@ -16,16 +16,18 @@ export default  function BookCard({ book }: { book: Book }) {
       return new URL(`../${coverPhotoURL}`, import.meta.url).href;
     }
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 200, height: 300 }}>
       <CardActionArea>
-        <CardMedia
-          component="img"
-          height="140"
-          src={getImageUrl(book.coverPhotoURL)}
-          alt={book.title}
-        />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
+          <CardMedia
+            component="img"
+            src={getImageUrl(book.coverPhotoURL)}
+            alt={book.title}
+            sx={{
+              width: 100,
+            }}
+          />
+          <Typography gutterBottom variant="h7" component="div">
             {book.title}
           </Typography>
           <Typography variant="body2" color="text.secondary">
