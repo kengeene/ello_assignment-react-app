@@ -25,7 +25,6 @@ export default  function BookCard({
   }
   return (
     <Card
-      sx={{ maxWidth: 200, height: 300 }}
       className="flex flex-col items-center"
     >
       <CardActionArea>
