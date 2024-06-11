@@ -11,7 +11,7 @@ export default function BooksList({
   books: Array<Book>;
   search: string;
 }) {
-  const [page, setPage] = useState(2);
+  const [page, setPage] = useState(1);
   const [rowsPerPage, setRowsPerPage] = useState(10);
 
   const handleChangePage = (_: () => void, newPage: number) => {
@@ -22,14 +22,14 @@ export default function BooksList({
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setRowsPerPage(parseInt(event.target.value, 10));
-    setPage(0);
+    setPage(1);
   };
 
   const [searchResults, setSearchResults] = useState<Array<Book>>([]);
 
   useEffect(() => {
     setSearchResults(
-      books.filter((results) => results.title.toLowerCase().includes(search))
+      books.filter((results) => results.title.toLowerCase().includes(search.toLowerCase()))
     );
   }, [search, books]);
 
@@ -62,7 +62,7 @@ export default function BooksList({
         onPageChange={handleChangePage}
         rowsPerPage={rowsPerPage}
         onRowsPerPageChange={handleChangeRowsPerPage}
-        style={{color: 'var(--color-3)'}}
+        style={{ color: "var(--color-3)" }}
       />
     </>
   );

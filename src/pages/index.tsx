@@ -9,8 +9,14 @@ import ReadingListTable from '@/components/ReadingListTable';
 import LocalLibraryIcon from "@mui/icons-material/LocalLibrary";
 
 function App() {
-  const { loading, error, data, setSearch, search, readingList } =
-    useBooks();
+  const {
+    loading,
+    error,
+    data,
+    setSearch,
+    search,
+    readingList
+  } = useBooks();
 
     if (loading) return <CircularProgress />;
     if (error) return <p>Error : {error.message}</p>;
@@ -19,7 +25,7 @@ function App() {
     <Grid container spacing={2} minWidth={"90vw"}>
       <Grid item xs={12} sm={12} md={12} lg={12} className="text-right">
         <Badge
-          badgeContent={4}
+          badgeContent={readingList.length}
           color="warning"
           className="hover:cursor-pointer"
         >
@@ -35,7 +41,10 @@ function App() {
         <ReadingListTable readingList={readingList} />
       </Grid>
       <Grid item xs={12} sm={12} md={12} lg={12} key={"app-container"}>
-        <BooksList books={data.books} search={search} />
+        <BooksList
+          books={data.books}
+          search={search}
+        />
       </Grid>
     </Grid>
   );

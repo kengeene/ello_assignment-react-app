@@ -16,7 +16,10 @@ export default  function BookCard({ book }: { book: Book }) {
       return new URL(`../${coverPhotoURL}`, import.meta.url).href;
     }
   return (
-    <Card sx={{ maxWidth: 200, height: 300 }}>
+    <Card
+      sx={{ maxWidth: 200, height: 300 }}
+      className="flex flex-col items-center"
+    >
       <CardActionArea>
         <CardContent>
           <CardMedia
@@ -35,7 +38,7 @@ export default  function BookCard({ book }: { book: Book }) {
           </Typography>
           <Stack direction="row" spacing={1} useFlexGap>
             Level:
-            <Chip size="small" label={book.readingLevel} color="success" />
+            <Chip size="small" label={book.readingLevel} color="warning" />
           </Stack>
         </CardContent>
       </CardActionArea>
