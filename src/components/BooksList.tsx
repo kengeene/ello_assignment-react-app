@@ -62,6 +62,7 @@ export default function BooksList({
         onPageChange={handleChangePage}
         rowsPerPage={rowsPerPage}
         onRowsPerPageChange={handleChangeRowsPerPage}
+        style={{color: 'var(--color-3)'}}
       />
     </>
   );
