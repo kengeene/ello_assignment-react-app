@@ -9,12 +9,28 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: var(--color-2);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+
+  /* Primary colors */
+  --color-1: #5ACCCC;
+  --color-2: #FFFFFF;
+  --color-3: #335C6E;
+  --color-4: #FABD33;
+
+  /* Secondary colors */
+  --color-6: #CFFAFA;
+  --color-7: #F76434;
+  --color-8: #4AA088;
+  --color-9: #FAAD00;
+  --color-10: #53C2C2;
+  --color-10: #FFE6DC;
+  --color-10: #28B8B8;
 }
 
 a {
