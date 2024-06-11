@@ -16,9 +16,8 @@ export default  function BookCard({
 }: {
   book: Book;
 }) {
-  const {
-    addToReadingList,
-  } = useBooks();
+  const { addToReadingList, isBookSelected, removeFromReadingList } =
+    useBooks();
   function getImageUrl(coverPhotoURL: string) {
     return new URL(`../${coverPhotoURL}`, import.meta.url).href;
   }
@@ -50,9 +49,23 @@ export default  function BookCard({
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary" onClick={() => addToReadingList(book)}>
-          Add to reading list
-        </Button>
+        {isBookSelected(book) ? (
+          <Button
+            size="small"
+            color="primary"
+            onClick={() => removeFromReadingList(book)}
+          >
+            Remove from reading list
+          </Button>
+        ) : (
+          <Button
+            size="small"
+            color="primary"
+            onClick={() => addToReadingList(book)}
+          >
+            Add to reading list
+          </Button>
+        )}
       </CardActions>
     </Card>
   );

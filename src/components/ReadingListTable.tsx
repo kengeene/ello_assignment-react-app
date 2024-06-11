@@ -4,12 +4,11 @@ import { Book } from "@/types";
 
 const columns: GridColDef[] = [
   { field: "id", headerName: "ID", width: 70 },
-  { field: "firstName", headerName: "First name", width: 130 },
-  { field: "lastName", headerName: "Last name", width: 130 },
+  { field: "author", headerName: "Author", width: 130 },
+  { field: "title", headerName: "Title", width: 130 },
   {
-    field: "age",
-    headerName: "Age",
-    type: "number",
+    field: "readingLevel",
+    headerName: "Level",
     width: 90,
   },
 ];

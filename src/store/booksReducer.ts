@@ -16,12 +16,14 @@ const booksSlice = createSlice({
   initialState,
   reducers: {
     addBook(state, action: PayloadAction<Book>) {
-      state.selectedBooks.push(action.payload);
+      // Only add book if it doesn't exist
+      if (state.selectedBooks.findIndex(x=> x.id === action.payload.id) === -1) state.selectedBooks.push(action.payload);
     },
     removeBook(state, action: PayloadAction<Book>) {
-      state.selectedBooks = state.books.filter(
-        (book: Book) => book.id !== action.payload.id
+      const bookIndex = state.selectedBooks.findIndex(
+        (x) => x.id === action.payload.id
       );
+      state.selectedBooks = state.selectedBooks.filter((_, index)=> index !== bookIndex);
     },
   },
 });
