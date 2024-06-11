@@ -27,7 +27,7 @@ export default  function BookCard({ book }: { book: Book }) {
               width: 100,
             }}
           />
-          <Typography gutterBottom variant="h7" component="div">
+          <Typography gutterBottom variant="subtitle2" component="div">
             {book.title}
           </Typography>
           <Typography variant="body2" color="text.secondary">
