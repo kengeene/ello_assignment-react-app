@@ -5,7 +5,6 @@ import {
   Grid,
   Modal,
 } from "@mui/material";
-import { useState } from "react";
 import BooksList from '@/components/BooksList'
 import SearchBar from '@/components/SearchBar';
 import useBooks from '@/hooks/useBooks';
@@ -13,6 +12,7 @@ import useBooks from '@/hooks/useBooks';
 import ReadingListTable from '@/components/ReadingListTable';
 // import MailIcon from "@mui/icons-material/Mail";
 import LocalLibraryIcon from "@mui/icons-material/LocalLibrary";
+import useModal from '@/hooks/useModal';
 
 function App() {
   const {
@@ -23,9 +23,7 @@ function App() {
     search,
     readingList
   } = useBooks();
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const { open, handleOpen, handleClose } = useModal();
 
     if (loading) return <CircularProgress />;
     if (error) return <p>Error : {error.message}</p>;
