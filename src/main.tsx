@@ -18,6 +18,9 @@ import {
   });
 
   const theme = createTheme({
+    typography: {
+      fontFamily: ["Mulish"].join(","),
+    },
     palette: {
       primary: {
         light: "#CFFAFA",
