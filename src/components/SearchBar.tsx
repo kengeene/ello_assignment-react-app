@@ -9,20 +9,19 @@ export default function SearchBar({ search, setSearch }: { search: string; setSe
   useEffect(()=> {
     inputRef.current?.focus();
   }, [search])
-  const StyledInputBase = styled(InputBase)(({ theme }) => ({
-    color: "inherit",
-    "& .MuiInputBase-input": {
-      padding: theme.spacing(1, 1, 1, 0),
-      // vertical padding + font size from searchIcon
-      paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-      transition: theme.transitions.create("width"),
-      width: "100%",
-      [theme.breakpoints.up("md")]: {
-        width: "20ch",
+    const StyledInputBase = styled(InputBase)(({ theme }) => ({
+      color: "inherit",
+      "& .MuiInputBase-input": {
+        padding: theme.spacing(1, 1, 1, 0),
+        // vertical padding + font size from searchIcon
+        paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+        transition: theme.transitions.create("width"),
+        width: "100%",
+        [theme.breakpoints.up("md")]: {
+          width: "20ch",
+        }
       },
-      ref: { inputRef },
-    },
-  }));
+    }));
 
   const Search = styled("div")(({ theme }) => ({
     position: "relative",
@@ -49,6 +48,7 @@ export default function SearchBar({ search, setSearch }: { search: string; setSe
     alignItems: "center",
     justifyContent: "center",
   }));
+
   return (
     <>
       {" "}
@@ -58,9 +58,8 @@ export default function SearchBar({ search, setSearch }: { search: string; setSe
         </SearchIconWrapper>
         <StyledInputBase
           placeholder="Search…"
-          inputProps={{ "aria-label": "search" }}
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
+          inputProps={{ "aria-label": "search", ref: inputRef, value: search, onChange: (e) => setSearch((e.target as HTMLInputElement).value)}}
+
         />
       </Search>
     </>

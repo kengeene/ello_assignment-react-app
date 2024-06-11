@@ -17,7 +17,7 @@ function App() {
           <SearchBar setSearch={setSearch} search={search} />
         </div>
       </Grid>
-      <Grid item xs={12}>
+      <Grid item xs={12} sm={12} md={12} lg={12}>
         <BooksList books={data.books} search={search} />
       </Grid>
     </Grid>
