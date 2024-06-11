@@ -1,4 +1,6 @@
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
+import Box from "@mui/material/Box";
+import { Book } from "@/types";
 
 const columns: GridColDef[] = [
   { field: "id", headerName: "ID", width: 70 },
@@ -12,9 +14,20 @@ const columns: GridColDef[] = [
   },
 ];
 
-export default function DataTable({ readingList }: { readingList: any }) {
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  bgcolor: "background.paper",
+  border: "2px solid #000",
+  boxShadow: 24,
+  p: 4,
+};
+
+export default function DataTable({ readingList }: { readingList: Array<Book> | [] }) {
   return (
-    <div style={{ height: 400, width: "100%" }}>
+        <Box sx={style}>
       <DataGrid
         rows={readingList}
         columns={columns}
@@ -26,6 +39,6 @@ export default function DataTable({ readingList }: { readingList: any }) {
         pageSizeOptions={[5, 10]}
         checkboxSelection
       />
-    </div>
+      </Box>
   );
 }
