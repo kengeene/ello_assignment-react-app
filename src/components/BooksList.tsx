@@ -1,6 +1,4 @@
-import {
-  Grid,
-} from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import { Book } from "@/types/index";
 import BookCard from "@/components/BookCard";
 import { useEffect, useState } from "react";
@@ -37,7 +35,7 @@ export default function BooksList({books, search}: {books: Array<Book>; search: 
 
   return (
     <>
-      <Grid container spacing={4}>
+      <Grid container spacing={4} minHeight={"70vh"}>
         {filteredResults.length > 0 ? (
           filteredResults.map((book: Book, index: number) => (
             <Grid item xs={12} sm={4} md={4} lg={4} key={index}>
@@ -45,8 +43,10 @@ export default function BooksList({books, search}: {books: Array<Book>; search: 
             </Grid>
           ))
         ) : (
-          <Grid container spacing={4}>
-            <p>No data</p>
+          <Grid item>
+            <Typography variant="body2" color="text.secondary">
+              No data
+            </Typography>
           </Grid>
         )}
       </Grid>

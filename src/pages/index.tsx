@@ -11,13 +11,13 @@ function App() {
     if (error) return <p>Error : {error.message}</p>;
 
   return (
-    <Grid container spacing={2}>
-      <Grid item xs={12} sm={12} md={12} lg={12}>
+    <Grid container spacing={2} minWidth={'90vw'}>
+      <Grid item xs={12} sm={12} md={12} lg={12} key={"top-bar"}>
         <div className="my-4">
           <SearchBar setSearch={setSearch} search={search} />
         </div>
       </Grid>
-      <Grid item xs={12} sm={12} md={12} lg={12}>
+      <Grid item xs={12} sm={12} md={12} lg={12} key={"app-container"}>
         <BooksList books={data.books} search={search} />
       </Grid>
     </Grid>
