@@ -24,9 +24,7 @@ export default  function BookCard({
     return new URL(`../${coverPhotoURL}`, import.meta.url).href;
   }
   return (
-    <Card
-      className="flex flex-col items-center"
-    >
+    <Card className="flex flex-col items-center">
       <CardActionArea>
         <CardContent className="flex flex-col items-center">
           <CardMedia
@@ -37,7 +35,12 @@ export default  function BookCard({
               width: 100,
             }}
           />
-          <Typography gutterBottom variant="subtitle2" component="div" className="mt-2">
+          <Typography
+            gutterBottom
+            variant="subtitle2"
+            component="div"
+            className="mt-2"
+          >
             {book.title}
           </Typography>
           <Typography variant="body2" color="text.secondary">
@@ -57,6 +60,7 @@ export default  function BookCard({
             variant="contained"
             onClick={() => removeFromReadingList(book)}
             ref={buttonRef}
+            className="focus:outline-none"
           >
             Remove
           </Button>
@@ -67,6 +71,7 @@ export default  function BookCard({
             variant="contained"
             onClick={() => addToReadingList(book)}
             ref={buttonRef}
+            className="focus:outline-none"
           >
             Add to reading list
           </Button>
