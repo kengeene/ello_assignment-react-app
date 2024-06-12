@@ -1,8 +1,12 @@
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import { ReactNode } from "react";
 
+console.log('backend env is', import.meta.env.VITE_BACKEND_URL)
+
+const clientUrl = import.meta.env.VITE_BACKEND_URL;
+
 const client = new ApolloClient({
-  uri: "http://localhost:4000/",
+  uri: clientUrl,
   cache: new InMemoryCache(),
 });
 
