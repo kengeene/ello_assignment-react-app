@@ -1,19 +1,10 @@
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
-import Box from "@mui/material/Box";
+import { Box, Button } from "@mui/material";
 import { Book } from "@/types";
-
-const columns: GridColDef[] = [
-  { field: "id", headerName: "ID", width: 70 },
-  { field: "author", headerName: "Author", width: 130 },
-  { field: "title", headerName: "Title", width: 300 },
-  {
-    field: "readingLevel",
-    headerName: "Level",
-    width: 20,
-  },
-];
+import useBooks from "@/hooks/useBooks";
 
 const style = {
+  minHeight: '10vh',
   position: "absolute",
   top: "50%",
   left: "50%",
@@ -25,8 +16,36 @@ const style = {
 };
 
 export default function DataTable({ readingList }: { readingList: Array<Book> | [] }) {
+  const { removeFromReadingList } = useBooks();
+
+  const columns: GridColDef[] = [
+    { field: "id", headerName: "ID", width: 70 },
+    { field: "author", headerName: "Author", width: 130 },
+    { field: "title", headerName: "Title", width: 300 },
+    {
+      field: "readingLevel",
+      headerName: "Level",
+      width: 20,
+    },
+    {
+      field: "actions",
+      headerName: "Actions",
+      width: 100,
+      renderCell: (params) => (
+        <Button
+        size="small"
+          variant="contained"
+          color="secondary"
+          onClick={() => removeFromReadingList(params.row)}
+        >
+          Remove
+        </Button>
+      ),
+    },
+  ];
+
   return (
-        <Box sx={style}>
+    <Box sx={style}>
       <DataGrid
         rows={readingList}
         columns={columns}
@@ -36,8 +55,7 @@ export default function DataTable({ readingList }: { readingList: Array<Book> | 
           },
         }}
         pageSizeOptions={[5, 10]}
-        checkboxSelection
       />
-      </Box>
+    </Box>
   );
 }

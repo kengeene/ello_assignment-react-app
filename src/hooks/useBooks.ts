@@ -14,9 +14,10 @@ export default function useBooks() {
     dispatch(addBook(book))
   }
 
-  const removeFromReadingList = (book: Book) => {
+  const removeFromReadingList = (book: Book | string | string[]) => {
     dispatch(removeBook(book));
   };
+
 
   const isBookSelected = (book: Book) => {
     return selectedBooks.findIndex(x => x.id === book.id) !== -1;
