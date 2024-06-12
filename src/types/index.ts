@@ -5,3 +5,8 @@ export type Book = {
   title: string;
   id: number
 };
+
+export interface BooksState {
+  books: Book[];
+  selectedBooks: Book[];
+}

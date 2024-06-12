@@ -1,10 +1,6 @@
-import { Book } from "@/types";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import {BooksState, Book} from '@/types/index'
 
-export interface BooksState {
-  books: Book[];
-  selectedBooks: Book[];
-}
 
 const initialState: BooksState = {
   books: [],
