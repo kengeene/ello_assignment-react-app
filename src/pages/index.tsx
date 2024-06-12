@@ -31,7 +31,7 @@ function App() {
   const gridWidth = 12
 
   return (
-    <Grid container zeroMinWidth spacing={4}>
+    <Grid container spacing={4}>
       {/* Badge & modal component */}
       <Grid item xs={gridWidth} sm={gridWidth} md={gridWidth} lg={gridWidth} className="text-right my-4">
         <Badge
