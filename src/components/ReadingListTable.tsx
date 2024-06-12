@@ -47,7 +47,7 @@ const style = {
      ];
 
      return (
-       <Box sx={style} ref={ref}>
+       <Box sx={style} ref={ref} tabIndex={0}>
          <DataGrid
            rows={readingList}
            columns={columns}
