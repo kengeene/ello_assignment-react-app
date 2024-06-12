@@ -36,7 +36,7 @@ function App() {
       <Grid item xs={gridWidth} sm={gridWidth} md={gridWidth} lg={gridWidth} className="text-right my-4">
         <Badge
           badgeContent={`${selectedBooks.length}`}
-          color="warning"
+          color="secondary"
           className="hover:cursor-pointer"
           onClick={handleOpen}
         >
