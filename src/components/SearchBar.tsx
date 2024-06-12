@@ -9,7 +9,7 @@ export default function SearchBar({ search, setSearch }: { search: string; setSe
   useEffect(()=> {
     inputRef.current?.focus();
   }, [search])
-    const StyledInputBase = styled(InputBase)(({ theme }) => ({
+    const StyledInputBase = styled(InputBase)(() => ({
       "& .MuiInputBase-input": {
         // padding: theme.spacing(1, 1, 1, 0),
         // // vertical padding + font size from searchIcon

@@ -1,7 +1,8 @@
 import { useQuery, gql } from "@apollo/client";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addBook, BooksState, removeBook } from "@/store/booksReducer";
+import { addBook, removeBook } from "@/store/booksReducer";
+import { BooksState } from "@/types/index";
 import { Book } from "@/types";
 
 export default function useBooks() {
@@ -14,13 +15,13 @@ export default function useBooks() {
     dispatch(addBook(book))
   }
 
-  const removeFromReadingList = (book: Book | string | string[]) => {
+  const removeFromReadingList = (book: Book) => {
     dispatch(removeBook(book));
   };
 
 
   const isBookSelected = (book: Book) => {
-    return selectedBooks.findIndex(x => x.id === book.id) !== -1;
+    return selectedBooks.findIndex((x: Book) => x.id === book.id) !== -1;
   };
 
   const GET_BOOKS = gql`

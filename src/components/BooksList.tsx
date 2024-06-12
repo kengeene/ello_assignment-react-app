@@ -14,9 +14,12 @@ export default function BooksList({
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
 
-  const handleChangePage = (_: () => void, newPage: number) => {
-    setPage(newPage);
-  };
+ const handleChangePage = (
+   _event: React.MouseEvent<HTMLButtonElement> | null,
+   newPage: number
+ ) => {
+   setPage(newPage);
+ };
 
   const handleChangeRowsPerPage = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -42,7 +45,13 @@ export default function BooksList({
 
   return (
     <>
-      <Grid container spacing={4} minHeight={"70vh"} columns={10} className="flex justify-center">
+      <Grid
+        container
+        spacing={4}
+        minHeight={"70vh"}
+        columns={10}
+        className="flex justify-center"
+      >
         {filteredResults.length > 0 ? (
           filteredResults.map((book: Book, index: number) => (
             <Grid item xs={12} sm={3} md={2} lg={2} key={index}>
