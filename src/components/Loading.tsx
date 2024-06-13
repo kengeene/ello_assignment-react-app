@@ -9,7 +9,7 @@ export const Loading = () => {
         }, 5000);
     }, [])
     return (
-      <div className="flex items-center">
+      <div className="flex flex-col items-center">
         <CircularProgress />
         <Typography variant="body2" color="text.secondary">
           {message}
