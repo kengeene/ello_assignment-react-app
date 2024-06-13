@@ -49,6 +49,7 @@ const style = {
      return (
        <Box sx={style} ref={ref} tabIndex={0}>
          <DataGrid
+         autoHeight
            rows={readingList}
            columns={columns}
            initialState={{
