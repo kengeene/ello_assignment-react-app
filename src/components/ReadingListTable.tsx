@@ -5,7 +5,9 @@ import useBooks from "@/hooks/useBooks";
 import {forwardRef} from 'react';
 
 const style = {
-  minHeight: '10vh',
+  minHeight: "10vh",
+  width: '100%',
+  overflow: "auto", // Add scrolling when content exceeds container height
   position: "absolute",
   top: "50%",
   left: "50%",
