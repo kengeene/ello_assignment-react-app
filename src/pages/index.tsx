@@ -1,6 +1,5 @@
 import '@/assets/css/App.css'
 import {
-  CircularProgress,
   Badge,
   Grid,
   Modal,
@@ -13,6 +12,7 @@ import ReadingListTable from '@/components/ReadingListTable';
 // import MailIcon from "@mui/icons-material/Mail";
 import LocalLibraryIcon from "@mui/icons-material/LocalLibrary";
 import useModal from '@/hooks/useModal';
+import { Loading } from "@/components/Loading";
 
 function App() {
   const {
@@ -25,7 +25,7 @@ function App() {
   } = useBooks();
   const { open, handleOpen, handleClose } = useModal();
 
-    if (loading) return <CircularProgress />;
+    if (loading) return <Loading />;
     if (error) return <p>Error : {error.message}</p>;
 
   const gridWidth = 12
