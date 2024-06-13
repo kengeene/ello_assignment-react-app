@@ -5,7 +5,9 @@ export const Loading = () => {
 
     useEffect(()=>{
         setTimeout(() => {
-            setMessage('This is taking a bit longer than expected. Apologies for the delay, this is due to the server powering down to optimize on resources');
+            setMessage(
+              "Apologies for the delay, this is taking a bit longer than expected. This is due to the server powering down to optimize on resources"
+            );
         }, 5000);
     }, [])
     return (
