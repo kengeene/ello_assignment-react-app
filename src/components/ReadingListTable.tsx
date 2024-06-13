@@ -6,7 +6,7 @@ import {forwardRef} from 'react';
 
 const style = {
   minHeight: "10vh",
-  width: '100%',
+  width: '90%',
   overflow: "auto", // Add scrolling when content exceeds container height
   position: "absolute",
   top: "50%",
@@ -49,9 +49,10 @@ const style = {
      ];
 
      return (
-       <Box sx={style} ref={ref} tabIndex={0}>
+       <Box sx={style} ref={ref} tabIndex={0} >
          <DataGrid
-         autoHeight
+           autoHeight
+           autoPageSize
            rows={readingList}
            columns={columns}
            initialState={{
